@@ -3,6 +3,7 @@
 import { motion, type Variants } from "framer-motion";
 import Image from "next/image";
 import { ArrowUpRight, Play } from "lucide-react";
+import { calendlyUrl } from "@/lib/data";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 28 },
@@ -73,7 +74,9 @@ export default function Hero() {
             className="mt-10 flex flex-wrap items-center gap-4"
           >
             <a
-              href="#contact"
+              href={calendlyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full bg-gold px-7 py-4 text-sm font-semibold text-ink hover:bg-gold-light transition-colors"
             >
               Book Your Chapter

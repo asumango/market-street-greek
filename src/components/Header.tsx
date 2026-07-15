@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import { Menu, X, ArrowUpRight } from "lucide-react";
-import { navLinks } from "@/lib/data";
+import { navLinks, calendlyUrl } from "@/lib/data";
 
 export default function Header() {
   const [hidden, setHidden] = useState(false);
@@ -64,7 +64,9 @@ export default function Header() {
 
         <div className="flex items-center gap-3">
           <a
-            href="#contact"
+            href={calendlyUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className="hidden sm:inline-flex items-center gap-1.5 rounded-full bg-gold px-5 py-2.5 text-sm font-semibold text-ink hover:bg-gold-light transition-colors"
           >
             Book Your Chapter
@@ -104,7 +106,9 @@ export default function Header() {
                 </motion.a>
               ))}
               <a
-                href="#contact"
+                href={calendlyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setMenuOpen(false)}
                 className="mt-5 inline-flex items-center justify-center gap-1.5 rounded-full bg-gold px-5 py-3.5 text-sm font-semibold text-ink"
               >

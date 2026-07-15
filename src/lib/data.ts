@@ -211,3 +211,4 @@ export const testimonials = [
 ];
 
 export const contactEmail = "hello@marketststudios.com";
+export const calendlyUrl = "https://calendly.com/marketstreetstudios/30min";
