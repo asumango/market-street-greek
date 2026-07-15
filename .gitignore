@@ -43,3 +43,6 @@ next-env.d.ts
 # claude code local session files
 .claude/settings.local.json
 .claude/scheduled_tasks.lock
+
+# raw full-resolution source photos (optimized copies live in public/photos)
+/Photos for Site/

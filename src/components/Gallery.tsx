@@ -82,8 +82,8 @@ export default function Gallery() {
                 style={{ aspectRatio: `${item.w} / ${item.h}` }}
               >
                 <Image
-                  src={`https://picsum.photos/seed/${item.seed}/${item.w}/${item.h}`}
-                  alt={item.title}
+                  src={item.src}
+                  alt={item.alt}
                   fill
                   sizes="(max-width: 640px) 50vw, 33vw"
                   className="object-cover grayscale-[30%] group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
@@ -131,8 +131,8 @@ export default function Gallery() {
             >
               <div className="relative w-full" style={{ aspectRatio: `${active.w} / ${active.h}` }}>
                 <Image
-                  src={`https://picsum.photos/seed/${active.seed}/${active.w * 2}/${active.h * 2}`}
-                  alt={active.title}
+                  src={active.src}
+                  alt={active.alt}
                   fill
                   sizes="90vw"
                   className="object-cover"

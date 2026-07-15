@@ -6,16 +6,16 @@ import Image from "next/image";
 import { Play, Pause, Camera, Music2, PlaySquare, Volume2 } from "lucide-react";
 
 const verticalClips = [
-  { seed: "ms-vert-1", label: "Bid Day Reveal", platform: "tiktok", views: "1.2M" },
-  { seed: "ms-vert-2", label: "Recruitment Prep", platform: "instagram", views: "640K" },
-  { seed: "ms-vert-3", label: "Chapter Retreat", platform: "tiktok", views: "980K" },
-  { seed: "ms-vert-4", label: "Founders' Day", platform: "instagram", views: "410K" },
-  { seed: "ms-vert-5", label: "Formal Getting Ready", platform: "tiktok", views: "2.1M" },
+  { src: "/photos/vertical-bid-day-reveal.jpg", label: "Bid Day Reveal", platform: "tiktok", views: "1.2M" },
+  { src: "/photos/vertical-recruitment-prep.jpg", label: "Recruitment Prep", platform: "instagram", views: "640K" },
+  { src: "/photos/vertical-chapter-retreat.jpg", label: "Chapter Retreat", platform: "tiktok", views: "980K" },
+  { src: "/photos/vertical-founders-day.jpg", label: "Founders' Day", platform: "instagram", views: "410K" },
+  { src: "/photos/vertical-formal-getting-ready.jpg", label: "Formal Getting Ready", platform: "tiktok", views: "2.1M" },
 ];
 
 const horizontalClips = [
-  { seed: "ms-horiz-1", label: "2025 National Convention Recap", duration: "6:42" },
-  { seed: "ms-horiz-2", label: "A Week Inside Recruitment", duration: "4:15" },
+  { src: "/photos/horizontal-convention-recap.jpg", label: "2025 National Convention Recap", duration: "6:42" },
+  { src: "/photos/horizontal-recruitment-week.jpg", label: "A Week Inside Recruitment", duration: "4:15" },
 ];
 
 const platformIcon = { tiktok: Music2, instagram: Camera };
@@ -54,7 +54,7 @@ export default function ContentShowcase() {
           className="relative w-full overflow-hidden rounded-3xl ring-1 ring-white/10 aspect-video mb-16 sm:mb-20 group"
         >
           <Image
-            src="https://picsum.photos/seed/ms-feature-film/1600/900"
+            src="/photos/featured-film-poster.jpg"
             alt="Alpha Delta Pi national convention recap film"
             fill
             sizes="100vw"
@@ -114,7 +114,7 @@ export default function ContentShowcase() {
               const Icon = platformIcon[clip.platform as keyof typeof platformIcon];
               return (
                 <motion.div
-                  key={clip.seed}
+                  key={clip.src}
                   initial={{ opacity: 0, y: 24 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -122,7 +122,7 @@ export default function ContentShowcase() {
                   className="relative shrink-0 w-[190px] sm:w-[220px] aspect-9/16 rounded-2xl overflow-hidden ring-1 ring-white/10 snap-start group cursor-pointer"
                 >
                   <Image
-                    src={`https://picsum.photos/seed/${clip.seed}/500/900`}
+                    src={clip.src}
                     alt={clip.label}
                     fill
                     sizes="220px"
@@ -163,7 +163,7 @@ export default function ContentShowcase() {
           <div className="grid sm:grid-cols-2 gap-5">
             {horizontalClips.map((clip, i) => (
               <motion.div
-                key={clip.seed}
+                key={clip.src}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -171,7 +171,7 @@ export default function ContentShowcase() {
                 className="relative aspect-video rounded-2xl overflow-hidden ring-1 ring-white/10 group cursor-pointer"
               >
                 <Image
-                  src={`https://picsum.photos/seed/${clip.seed}/900/500`}
+                  src={clip.src}
                   alt={clip.label}
                   fill
                   sizes="(max-width: 640px) 100vw, 50vw"

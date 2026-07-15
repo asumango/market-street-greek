@@ -100,20 +100,20 @@ export default function Hero() {
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="grid grid-cols-4 sm:grid-cols-6 gap-3 sm:gap-4 h-[240px] sm:h-[340px] lg:h-[420px]">
             {[
-              { seed: "ms-hero-1", span: "col-span-2 sm:col-span-2", y: "translate-y-0" },
-              { seed: "ms-hero-2", span: "col-span-2 sm:col-span-2", y: "-translate-y-4 sm:-translate-y-8" },
-              { seed: "ms-hero-3", span: "hidden sm:block sm:col-span-2", y: "translate-y-0" },
-              { seed: "ms-hero-4", span: "col-span-2 sm:col-span-2", y: "translate-y-4 sm:translate-y-6" },
-              { seed: "ms-hero-5", span: "hidden sm:block sm:col-span-2", y: "-translate-y-2" },
-              { seed: "ms-hero-6", span: "col-span-2 sm:col-span-2", y: "translate-y-0" },
+              { src: "/photos/hero-processional-1.jpg", alt: "Processional at Alpha Delta Pi National Convention", span: "col-span-2 sm:col-span-2", y: "translate-y-0" },
+              { src: "/photos/hero-welcome-party-1.jpg", alt: "Welcome party at Alpha Delta Pi convention", span: "col-span-2 sm:col-span-2", y: "-translate-y-4 sm:-translate-y-8" },
+              { src: "/photos/hero-awards-banquet-1.jpg", alt: "Awards banquet at Alpha Delta Pi convention", span: "hidden sm:block sm:col-span-2", y: "translate-y-0" },
+              { src: "/photos/hero-silent-disco-1.jpg", alt: "Silent disco at Alpha Delta Pi convention", span: "col-span-2 sm:col-span-2", y: "translate-y-4 sm:translate-y-6" },
+              { src: "/photos/hero-keynote-1.jpg", alt: "Keynote session at Alpha Delta Pi convention", span: "hidden sm:block sm:col-span-2", y: "-translate-y-2" },
+              { src: "/photos/hero-processional-2.jpg", alt: "Processional at Alpha Delta Pi National Convention", span: "col-span-2 sm:col-span-2", y: "translate-y-0" },
             ].map((img, i) => (
               <div
-                key={img.seed}
+                key={img.src}
                 className={`relative ${img.span} ${img.y} rounded-2xl overflow-hidden ring-1 ring-white/10 group`}
               >
                 <Image
-                  src={`https://picsum.photos/seed/${img.seed}/500/650`}
-                  alt="Sorority event coverage by Market Street Studios"
+                  src={img.src}
+                  alt={img.alt}
                   fill
                   sizes="(max-width: 640px) 50vw, 25vw"
                   className="object-cover grayscale-[35%] contrast-[1.05] saturate-[0.85] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
