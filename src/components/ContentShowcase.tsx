@@ -4,7 +4,14 @@ import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Player from "@vimeo/player";
-import { Play, Camera, Music2, PlaySquare, Volume2 } from "lucide-react";
+import {
+  Play,
+  Camera,
+  Music2,
+  PlaySquare,
+  Volume2,
+  VolumeX,
+} from "lucide-react";
 
 const FEATURED_VIMEO_URL = "https://vimeo.com/1210261032/4f807d0dee" as const;
 const FEATURED_TITLE = "ADPi Presidents Weekend 2026";
@@ -12,8 +19,22 @@ const FEATURED_POSTER =
   "https://i.vimeocdn.com/video/2180098043-1dee71096eb946284073d1a380abeedd2527da093233b352b97acf59ba85e766-d_1280?region=us";
 const FEATURED_DURATION = "14:27";
 
-const verticalClips = [
-  { src: "/photos/vertical-bid-day-reveal.jpg", label: "Bid Day Reveal", platform: "tiktok", views: "1.2M" },
+type VerticalClip = {
+  src: string;
+  label: string;
+  platform: "tiktok" | "instagram";
+  views: string;
+  vimeoUrl?: `https://vimeo.com/${string}`;
+};
+
+const verticalClips: VerticalClip[] = [
+  {
+    src: "/photos/vertical-bid-day-reveal.jpg",
+    label: "Photo Booth",
+    platform: "tiktok",
+    views: "1.2M",
+    vimeoUrl: "https://vimeo.com/1210210409/afc4d6528e",
+  },
   { src: "/photos/vertical-recruitment-prep.jpg", label: "Recruitment Prep", platform: "instagram", views: "640K" },
   { src: "/photos/vertical-chapter-retreat.jpg", label: "Chapter Retreat", platform: "tiktok", views: "980K" },
   { src: "/photos/vertical-founders-day.jpg", label: "Founders' Day", platform: "instagram", views: "410K" },
@@ -31,6 +52,29 @@ export default function ContentShowcase() {
   const featuredContainerRef = useRef<HTMLDivElement>(null);
   const featuredPlayerRef = useRef<Player | null>(null);
   const [featuredStarted, setFeaturedStarted] = useState(false);
+
+  const clipPlayers = useRef<Map<number, Player>>(new Map());
+  const [activeClip, setActiveClip] = useState<number | null>(null);
+
+  const registerClipPlayer = (index: number, player: Player | null) => {
+    if (player) clipPlayers.current.set(index, player);
+    else clipPlayers.current.delete(index);
+  };
+
+  const activateClip = (index: number) => {
+    setActiveClip(index);
+    clipPlayers.current.forEach((player, i) => {
+      if (i === index) {
+        player
+          .setCurrentTime(0)
+          .then(() => player.setMuted(false))
+          .then(() => player.play())
+          .catch(() => {});
+      } else {
+        player.setMuted(true).catch(() => {});
+      }
+    });
+  };
 
   const handleFeaturedPlay = () => {
     if (!featuredContainerRef.current || featuredPlayerRef.current) return;
@@ -144,45 +188,16 @@ export default function ContentShowcase() {
             </span>
           </div>
           <div className="flex gap-4 sm:gap-5 overflow-x-auto pb-4 scrollbar-none snap-x snap-mandatory">
-            {verticalClips.map((clip, i) => {
-              const Icon = platformIcon[clip.platform as keyof typeof platformIcon];
-              return (
-                <motion.div
-                  key={clip.src}
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.06, duration: 0.5 }}
-                  className="relative shrink-0 w-[190px] sm:w-[220px] aspect-9/16 rounded-2xl overflow-hidden ring-1 ring-white/10 snap-start group cursor-pointer"
-                >
-                  <Image
-                    src={clip.src}
-                    alt={clip.label}
-                    fill
-                    sizes="220px"
-                    className="object-cover group-hover:scale-110 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/10 to-ink/30" />
-                  <div className="absolute top-3 left-3 flex size-8 items-center justify-center rounded-full bg-ink/50 backdrop-blur">
-                    <Icon className="size-4" />
-                  </div>
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                    <span className="flex size-12 items-center justify-center rounded-full bg-paper/95 text-ink">
-                      <Play className="size-5 translate-x-0.5" fill="currentColor" />
-                    </span>
-                  </div>
-                  <div className="absolute inset-x-0 bottom-0 p-3.5">
-                    <p className="font-heading text-sm font-semibold leading-tight">
-                      {clip.label}
-                    </p>
-                    <div className="flex items-center gap-1.5 mt-1 text-[11px] text-paper-dim">
-                      <Volume2 className="size-3" />
-                      {clip.views} views
-                    </div>
-                  </div>
-                </motion.div>
-              );
-            })}
+            {verticalClips.map((clip, i) => (
+              <VerticalClipCard
+                key={clip.label}
+                clip={clip}
+                index={i}
+                isActive={activeClip === i}
+                registerPlayer={registerClipPlayer}
+                onActivate={activateClip}
+              />
+            ))}
           </div>
         </div>
 
@@ -227,5 +242,100 @@ export default function ContentShowcase() {
         </div>
       </div>
     </section>
+  );
+}
+
+function VerticalClipCard({
+  clip,
+  index,
+  isActive,
+  registerPlayer,
+  onActivate,
+}: {
+  clip: VerticalClip;
+  index: number;
+  isActive: boolean;
+  registerPlayer: (index: number, player: Player | null) => void;
+  onActivate: (index: number) => void;
+}) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const Icon = platformIcon[clip.platform];
+
+  useEffect(() => {
+    if (!clip.vimeoUrl || !containerRef.current) return;
+
+    const player = new Player(containerRef.current, {
+      url: clip.vimeoUrl,
+      background: true,
+      muted: true,
+      autoplay: true,
+      loop: true,
+      dnt: true,
+    });
+    registerPlayer(index, player);
+
+    return () => {
+      registerPlayer(index, null);
+      player.destroy().catch(() => {});
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [clip.vimeoUrl, index]);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.06, duration: 0.5 }}
+      onClick={() => clip.vimeoUrl && onActivate(index)}
+      className={`relative shrink-0 w-[190px] sm:w-[220px] aspect-9/16 rounded-2xl overflow-hidden ring-1 snap-start group cursor-pointer transition-[box-shadow] ${
+        isActive ? "ring-2 ring-gold" : "ring-white/10"
+      }`}
+    >
+      {clip.vimeoUrl ? (
+        <div
+          ref={containerRef}
+          className="absolute inset-0 [&_iframe]:absolute [&_iframe]:inset-0 [&_iframe]:h-full [&_iframe]:w-full [&_iframe]:pointer-events-none"
+        />
+      ) : (
+        <Image
+          src={clip.src}
+          alt={clip.label}
+          fill
+          sizes="220px"
+          className="object-cover group-hover:scale-110 transition-transform duration-700"
+        />
+      )}
+      <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/10 to-ink/30" />
+      <div className="absolute top-3 left-3 flex size-8 items-center justify-center rounded-full bg-ink/50 backdrop-blur">
+        <Icon className="size-4" />
+      </div>
+
+      {clip.vimeoUrl ? (
+        <div className="absolute top-3 right-3 flex size-8 items-center justify-center rounded-full bg-ink/50 backdrop-blur text-paper">
+          {isActive ? (
+            <Volume2 className="size-4 text-gold" />
+          ) : (
+            <VolumeX className="size-4" />
+          )}
+        </div>
+      ) : (
+        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+          <span className="flex size-12 items-center justify-center rounded-full bg-paper/95 text-ink">
+            <Play className="size-5 translate-x-0.5" fill="currentColor" />
+          </span>
+        </div>
+      )}
+
+      <div className="absolute inset-x-0 bottom-0 p-3.5">
+        <p className="font-heading text-sm font-semibold leading-tight">
+          {clip.label}
+        </p>
+        <div className="flex items-center gap-1.5 mt-1 text-[11px] text-paper-dim">
+          <Volume2 className="size-3" />
+          {clip.views} views
+        </div>
+      </div>
+    </motion.div>
   );
 }
