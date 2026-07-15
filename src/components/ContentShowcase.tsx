@@ -42,7 +42,13 @@ const verticalClips: VerticalClip[] = [
     views: "640K",
     vimeoUrl: "https://vimeo.com/1210210366/470104981d",
   },
-  { src: "/photos/vertical-chapter-retreat.jpg", label: "Chapter Retreat", platform: "tiktok", views: "980K" },
+  {
+    src: "/photos/vertical-chapter-retreat.jpg",
+    label: "Carousel Scroll",
+    platform: "tiktok",
+    views: "980K",
+    vimeoUrl: "https://vimeo.com/1210210388/2ede526b0d",
+  },
   { src: "/photos/vertical-founders-day.jpg", label: "Founders' Day", platform: "instagram", views: "410K" },
   { src: "/photos/vertical-formal-getting-ready.jpg", label: "Formal Getting Ready", platform: "tiktok", views: "2.1M" },
 ];
