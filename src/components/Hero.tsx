@@ -60,10 +60,10 @@ export default function Hero() {
             className="mt-8 max-w-xl text-lg sm:text-xl text-paper-dim leading-relaxed"
           >
             Market Street is the production team behind{" "}
-            <span className="text-paper font-medium">Alpha Delta Pi&rsquo;s</span>{" "}
-            biggest moments — now capturing events, conferences, and recruitment
-            for sororities nationwide. Photo, video, and social content that
-            actually gets watched.
+            <span className="text-paper font-medium">Greek Life&rsquo;s</span>{" "}
+            biggest moments—partnering with national sororities to create
+            photo, video, and social content that strengthens brands,
+            celebrates sisterhood, and connects collegians with alumnae.
           </motion.p>
 
           <motion.div
