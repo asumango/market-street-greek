@@ -1,9 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Play, Pause, Camera, Music2, PlaySquare, Volume2 } from "lucide-react";
+import Player from "@vimeo/player";
+import { Play, Camera, Music2, PlaySquare, Volume2 } from "lucide-react";
+
+const FEATURED_VIMEO_URL = "https://vimeo.com/1210261032/4f807d0dee" as const;
+const FEATURED_TITLE = "ADPi Presidents Weekend 2026";
+const FEATURED_POSTER =
+  "https://i.vimeocdn.com/video/2180098043-1dee71096eb946284073d1a380abeedd2527da093233b352b97acf59ba85e766-d_1280?region=us";
+const FEATURED_DURATION = "14:27";
 
 const verticalClips = [
   { src: "/photos/vertical-bid-day-reveal.jpg", label: "Bid Day Reveal", platform: "tiktok", views: "1.2M" },
@@ -21,7 +28,37 @@ const horizontalClips = [
 const platformIcon = { tiktok: Music2, instagram: Camera };
 
 export default function ContentShowcase() {
-  const [playing, setPlaying] = useState(false);
+  const featuredContainerRef = useRef<HTMLDivElement>(null);
+  const featuredPlayerRef = useRef<Player | null>(null);
+  const [featuredStarted, setFeaturedStarted] = useState(false);
+
+  const handleFeaturedPlay = () => {
+    if (!featuredContainerRef.current || featuredPlayerRef.current) return;
+    setFeaturedStarted(true);
+
+    const player = new Player(featuredContainerRef.current, {
+      url: FEATURED_VIMEO_URL,
+      autoplay: true,
+      loop: false,
+      byline: false,
+      title: false,
+      portrait: false,
+      dnt: true,
+    });
+    featuredPlayerRef.current = player;
+
+    player.on("ended", () => {
+      featuredPlayerRef.current?.destroy().catch(() => {});
+      featuredPlayerRef.current = null;
+      setFeaturedStarted(false);
+    });
+  };
+
+  useEffect(() => {
+    return () => {
+      featuredPlayerRef.current?.destroy().catch(() => {});
+    };
+  }, []);
 
   return (
     <section className="py-24 sm:py-32 border-t border-white/10 bg-ink-soft/40">
@@ -53,50 +90,47 @@ export default function ContentShowcase() {
           transition={{ duration: 0.6 }}
           className="relative w-full overflow-hidden rounded-3xl ring-1 ring-white/10 aspect-video mb-16 sm:mb-20 group"
         >
-          <Image
-            src="/photos/featured-film-poster.jpg"
-            alt="Alpha Delta Pi national convention recap film"
-            fill
-            sizes="100vw"
-            className="object-cover grayscale-[20%] group-hover:scale-105 transition-transform duration-700"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-ink/40" />
+          {!featuredStarted && (
+            <button
+              onClick={handleFeaturedPlay}
+              aria-label={`Play ${FEATURED_TITLE}`}
+              className="absolute inset-0 z-10"
+            >
+              <Image
+                src={FEATURED_POSTER}
+                alt={FEATURED_TITLE}
+                fill
+                sizes="100vw"
+                className="object-cover grayscale-[20%] group-hover:scale-105 transition-transform duration-700"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-ink/40" />
 
-          <button
-            onClick={() => setPlaying((p) => !p)}
-            aria-label={playing ? "Pause preview" : "Play preview"}
-            className="absolute inset-0 flex items-center justify-center"
-          >
-            <span className="relative flex items-center justify-center">
-              {playing && (
-                <>
-                  <span className="absolute size-20 sm:size-24 rounded-full bg-gold/30 animate-ping" />
-                  <span className="absolute size-20 sm:size-24 rounded-full bg-gold/20 animate-pulse" />
-                </>
-              )}
-              <span className="relative flex size-20 sm:size-24 items-center justify-center rounded-full bg-paper/95 text-ink shadow-2xl group-hover:scale-105 transition-transform">
-                {playing ? (
-                  <Pause className="size-8 sm:size-9" fill="currentColor" />
-                ) : (
+              <span className="absolute inset-0 flex items-center justify-center">
+                <span className="flex size-20 sm:size-24 items-center justify-center rounded-full bg-paper/95 text-ink shadow-2xl group-hover:scale-105 transition-transform">
                   <Play className="size-8 sm:size-9 translate-x-0.5" fill="currentColor" />
-                )}
+                </span>
               </span>
-            </span>
-          </button>
 
-          <div className="absolute left-5 bottom-5 sm:left-8 sm:bottom-8 right-5 sm:right-8 flex items-end justify-between">
-            <div>
-              <span className="eyebrow text-[10px] text-gold">
-                Featured Film · Conference Recap
+              <span className="absolute left-5 bottom-5 sm:left-8 sm:bottom-8 right-5 sm:right-8 flex items-end justify-between text-left">
+                <span className="block">
+                  <span className="eyebrow text-[10px] text-gold block">
+                    Featured Film · Presidents Weekend
+                  </span>
+                  <span className="font-heading text-2xl sm:text-4xl font-semibold mt-1 text-balance max-w-lg block">
+                    {FEATURED_TITLE}
+                  </span>
+                </span>
+                <span className="hidden sm:inline-flex eyebrow text-[10px] text-paper-dim border border-white/20 rounded-full px-3 py-1.5 backdrop-blur bg-ink/40">
+                  {FEATURED_DURATION}
+                </span>
               </span>
-              <h3 className="font-heading text-2xl sm:text-4xl font-semibold mt-1 text-balance max-w-lg">
-                Alpha Delta Pi 2025 National Convention
-              </h3>
-            </div>
-            <span className="hidden sm:inline-flex eyebrow text-[10px] text-paper-dim border border-white/20 rounded-full px-3 py-1.5 backdrop-blur bg-ink/40">
-              8:14
-            </span>
-          </div>
+            </button>
+          )}
+          <div
+            ref={featuredContainerRef}
+            className="absolute inset-0 [&_iframe]:absolute [&_iframe]:inset-0 [&_iframe]:block [&_iframe]:h-full [&_iframe]:w-full"
+          />
         </motion.div>
 
         {/* Vertical social clips carousel */}
