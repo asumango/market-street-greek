@@ -74,12 +74,12 @@ export default function PhoneReveal() {
 
         {/* phone */}
         <div className="lg:order-1 flex justify-center lg:justify-start">
-          <div className="relative w-[330px] h-[330px] sm:w-[415px] sm:h-[415px] lg:w-[330px] lg:h-[330px] xl:w-[415px] xl:h-[415px]">
+          <div className="relative w-[368px] h-[368px] sm:w-[455px] sm:h-[455px] lg:w-[412px] lg:h-[412px] xl:w-[520px] xl:h-[520px]">
             <motion.div
               animate={{ rotate: rotated ? -90 : 0 }}
               transition={{ duration: 1.1, ease: [0.65, 0, 0.35, 1] }}
               style={{ transformOrigin: "50% 50%" }}
-              className="absolute inset-0 m-auto w-[150px] aspect-[9/19.5] sm:w-[190px] lg:w-[150px] xl:w-[190px] rounded-[2.2rem] bg-ink-soft ring-1 ring-white/15 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.7)] p-[10px]"
+              className="absolute inset-0 m-auto w-[170px] aspect-[9/19.5] sm:w-[210px] lg:w-[190px] xl:w-[240px] rounded-[2.2rem] bg-ink-soft ring-1 ring-white/15 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.7)] p-[10px]"
             >
               {/* notch */}
               <div className="absolute top-[10px] left-1/2 -translate-x-1/2 w-16 h-4 rounded-full bg-black z-20" />
