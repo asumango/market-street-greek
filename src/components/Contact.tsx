@@ -68,7 +68,7 @@ export default function Contact() {
       >
         <div className="rounded-3xl border border-white/10 bg-ink-soft/60 overflow-hidden p-2 sm:p-4">
           <div
-            className="calendly-inline-widget w-full h-[1000px] sm:h-[720px]"
+            className="calendly-inline-widget w-full h-[1100px]"
             data-url={CALENDLY_EMBED_URL}
           />
         </div>
