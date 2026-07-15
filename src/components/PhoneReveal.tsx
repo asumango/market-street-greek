@@ -10,7 +10,7 @@ const VIMEO_URL = "https://vimeo.com/1210210365/aff4383907" as const;
 const VIMEO_TITLE = "ADPI Day 1 Recap";
 const POSTER =
   "https://i.vimeocdn.com/video/2180031811-f983ca429b1f040a42ea46b78e438864f9edfc45a6fb16a11e7aa57d82ffb864-d_640?region=us";
-const ROTATE_DELAY_MS = 2000;
+const ROTATE_DELAY_MS = 1500;
 
 export default function PhoneReveal() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -34,17 +34,16 @@ export default function PhoneReveal() {
     const player = new Player(containerRef.current, {
       url: VIMEO_URL,
       autoplay: true,
+      loop: false,
       byline: false,
       title: false,
       portrait: false,
       dnt: true,
     });
     playerRef.current = player;
-
-    player.on("play", () => {
-      rotateTimeout.current = setTimeout(() => setRotated(true), ROTATE_DELAY_MS);
-    });
     player.on("ended", reset);
+
+    rotateTimeout.current = setTimeout(() => setRotated(true), ROTATE_DELAY_MS);
   };
 
   useEffect(() => {
