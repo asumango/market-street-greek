@@ -7,7 +7,6 @@ import ContentShowcase from "@/components/ContentShowcase";
 import PhoneReveal from "@/components/PhoneReveal";
 import Metrics from "@/components/Metrics";
 import Process from "@/components/Process";
-import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -24,7 +23,6 @@ export default function Home() {
         <PhoneReveal />
         <Metrics />
         <Process />
-        <Testimonials />
         <Contact />
       </main>
       <Footer />

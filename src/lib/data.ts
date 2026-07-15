@@ -3,7 +3,6 @@ export const navLinks = [
   { label: "Services", href: "#services" },
   { label: "Impact", href: "#metrics" },
   { label: "Process", href: "#process" },
-  { label: "Stories", href: "#testimonials" },
 ];
 
 export const services = [
@@ -176,37 +175,6 @@ export const processSteps = [
     title: "Full Gallery Delivered",
     description:
       "Within 48 hours, your full photo gallery, recap film, and social cutdowns land in your hands — ready to share.",
-  },
-];
-
-export const testimonials = [
-  {
-    id: 1,
-    quote:
-      "Market Street doesn't just show up with a camera — they understand chapter culture. Our convention film had sisters in tears watching it back.",
-    name: "Chapter Communications Director",
-    org: "Alpha Delta Pi, National Convention",
-  },
-  {
-    id: 2,
-    quote:
-      "Recruitment week content used to take us weeks to piece together. Now we have same-day reels going up while PNMs are still on campus.",
-    name: "VP of Recruitment",
-    org: "Alpha Delta Pi Chapter",
-  },
-  {
-    id: 3,
-    quote:
-      "The turnaround is genuinely unmatched. We had our full philanthropy gallery and a recap video in our inbox less than two days later.",
-    name: "Philanthropy Chair",
-    org: "Alpha Delta Pi Chapter",
-  },
-  {
-    id: 4,
-    quote:
-      "It's the first time our social content has actually looked like it belongs on a national brand's page instead of a phone camera roll.",
-    name: "Social Media Chair",
-    org: "Alpha Delta Pi Chapter",
   },
 ];
 
