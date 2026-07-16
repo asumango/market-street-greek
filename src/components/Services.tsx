@@ -42,7 +42,7 @@ export default function Services() {
               transition={{ delay: 0.05 }}
               className="font-display text-4xl sm:text-6xl uppercase tracking-tight max-w-2xl text-balance"
             >
-              One team, every format your chapter needs.
+              One team, every format your organization needs.
             </motion.h2>
           </div>
           <motion.p
@@ -53,7 +53,7 @@ export default function Services() {
             className="text-paper-dim max-w-sm text-base leading-relaxed"
           >
             From a single philanthropy event to a full national conference,
-            we build the coverage plan around what your chapter actually
+            we build the coverage plan around what your organization actually
             needs to post.
           </motion.p>
         </div>

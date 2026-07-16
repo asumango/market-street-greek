@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     siteName: "Market Street Studios",
     title: "Market Street Studios | Content Studio for Greek Life",
     description:
-      "Photo, video, and social content for sorority events and conferences — trusted by Alpha Delta Pi, built for chapters nationwide.",
+      "Photo, video, and social content for sorority events and conferences — trusted by Alpha Delta Pi, built for organizations nationwide.",
     images: [
       {
         url: "/og-image.jpg",
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Market Street Studios | Content Studio for Greek Life",
     description:
-      "Photo, video, and social content for sorority events and conferences — trusted by Alpha Delta Pi, built for chapters nationwide.",
+      "Photo, video, and social content for sorority events and conferences — trusted by Alpha Delta Pi, built for organizations nationwide.",
     images: ["/og-image.jpg"],
   },
   robots: {

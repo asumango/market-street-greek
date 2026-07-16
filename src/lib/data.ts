@@ -38,14 +38,14 @@ export const services = [
     id: "live",
     title: "Live & Same-Day Edits",
     description:
-      "On-site same-day highlight reels so your chapter is posting before the event even ends.",
+      "On-site same-day highlight reels so your organization is posting before the event even ends.",
     tag: "Live",
   },
   {
     id: "strategy",
     title: "Content Strategy",
     description:
-      "A fully customized content calendar and creative direction built around your chapter's specific goals and brand — you get a true content partner, not just another vendor.",
+      "A fully customized content calendar and creative direction built around your organization's specific goals and brand — you get a true content partner, not just another vendor.",
     tag: "Strategy",
   },
 ];
@@ -139,7 +139,7 @@ export const galleryFilters = ["All", "Photo", "Video", "Social"] as const;
 export const metrics = [
   { id: "views", label: "Video Views Generated", value: 42, suffix: "M+" },
   { id: "engagement", label: "Avg. Engagement Rate", value: 8.4, suffix: "%" },
-  { id: "events", label: "Chapter Events Covered", value: 260, suffix: "+" },
+  { id: "events", label: "Organization Events Covered", value: 260, suffix: "+" },
   { id: "delivery", label: "Avg. Turnaround", value: 48, suffix: "hrs" },
 ];
 
@@ -156,19 +156,19 @@ export const processSteps = [
     number: "01",
     title: "Book Your Coverage",
     description:
-      "Tell us the event, the vibe, and the goals. We build a custom shot list and content plan around your chapter calendar.",
+      "Tell us the event, the vibe, and the goals. We build a custom shot list and content plan around your organization's calendar.",
   },
   {
     number: "02",
     title: "We Show Up & Shoot",
     description:
-      "Our team embeds with your chapter for the day — photo, video, and social capture happening simultaneously.",
+      "Our team embeds with your organization for the day — photo, video, and social capture happening simultaneously.",
   },
   {
     number: "03",
     title: "Same-Day Highlights",
     description:
-      "Before the event's even over, same-day edits are ready to post so your chapter stays top of feed.",
+      "Before the event's even over, same-day edits are ready to post so your organization stays top of feed.",
   },
   {
     number: "04",

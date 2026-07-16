@@ -83,7 +83,7 @@ export default function Metrics() {
               Average Engagement Rate by Format
             </h3>
             <span className="text-xs text-paper-dim">
-              Based on chapter content, trailing 12 months
+              Based on organization content, trailing 12 months
             </span>
           </div>
 
