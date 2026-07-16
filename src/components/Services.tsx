@@ -68,7 +68,7 @@ export default function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ delay: (i % 3) * 0.08, duration: 0.5 }}
-                className="group relative bg-ink p-8 sm:p-10 min-h-[280px] flex flex-col justify-between hover:bg-ink-soft transition-colors duration-300"
+                className="group relative bg-ink p-8 sm:p-10 min-h-[280px] flex flex-col hover:bg-ink-soft transition-colors duration-300"
               >
                 <div className="flex items-start justify-between">
                   <div className="flex size-12 items-center justify-center rounded-full border border-white/15 group-hover:border-gold group-hover:bg-gold/10 transition-colors">
@@ -79,8 +79,8 @@ export default function Services() {
                   </span>
                 </div>
 
-                <div>
-                  <h3 className="font-heading text-xl sm:text-2xl font-semibold mb-3 min-h-14 sm:min-h-16 flex items-start gap-2">
+                <div className="mt-10 sm:mt-12">
+                  <h3 className="font-heading text-xl sm:text-2xl font-semibold mb-3 flex items-start gap-2">
                     {service.title}
                     <ArrowUpRight className="size-4 text-gold opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all shrink-0 mt-1" />
                   </h3>
