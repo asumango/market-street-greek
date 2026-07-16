@@ -59,9 +59,9 @@ export default function Hero() {
             variants={fadeUp}
             className="mt-8 max-w-xl text-lg sm:text-xl text-paper-dim leading-relaxed"
           >
-            Struggling to properly showcase your chapter&rsquo;s next donor
-            event, pledge class, or alumnae reunion? Market Street is the
-            production team behind{" "}
+            Struggling to properly showcase your chapter&rsquo;s National
+            Convention, leadership summit, or donor and alumnae relations?
+            Market Street is the production team behind{" "}
             <span className="text-paper font-medium">
               Alpha Delta Pi&rsquo;s
             </span>{" "}
