@@ -10,8 +10,7 @@ export default function Footer() {
               MARKET<span className="text-gold">ST.</span>
             </span>
             <p className="text-xs text-paper-dim mt-2 max-w-xs">
-              Content studio for Greek life. Official content partner of
-              Alpha Delta Pi.
+              Content Studio for Greek Life
             </p>
           </div>
 

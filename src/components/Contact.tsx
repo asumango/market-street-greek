@@ -81,7 +81,7 @@ export default function Contact() {
       <div className="mx-auto max-w-5xl px-5 sm:px-8 mt-14 flex items-center justify-center gap-4">
         <span className="font-display text-2xl">MARKETST.</span>
         <span className="text-xs text-paper-dim">
-          Official Content Partner of Alpha Delta Pi
+          Content Studio for Greek Life
         </span>
       </div>
     </section>
