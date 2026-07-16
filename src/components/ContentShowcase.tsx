@@ -126,7 +126,7 @@ export default function ContentShowcase() {
             viewport={{ once: true }}
             className="eyebrow text-xs text-gold mb-4"
           >
-            Long-Form &amp; Social
+            Long-Form
           </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 16 }}

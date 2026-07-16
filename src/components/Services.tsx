@@ -80,9 +80,9 @@ export default function Services() {
                 </div>
 
                 <div>
-                  <h3 className="font-heading text-xl sm:text-2xl font-semibold mb-3 flex items-center gap-2">
+                  <h3 className="font-heading text-xl sm:text-2xl font-semibold mb-3 min-h-14 sm:min-h-16 flex items-start gap-2">
                     {service.title}
-                    <ArrowUpRight className="size-4 text-gold opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                    <ArrowUpRight className="size-4 text-gold opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all shrink-0 mt-1" />
                   </h3>
                   <p className="text-paper-dim text-sm leading-relaxed">
                     {service.description}

@@ -45,7 +45,7 @@ export const services = [
     id: "strategy",
     title: "Content Strategy",
     description:
-      "A posting calendar and creative direction built around your chapter's calendar, recruitment goals, and brand.",
+      "A fully customized content calendar and creative direction built around your chapter's specific goals and brand — you get a true content partner, not just another vendor.",
     tag: "Strategy",
   },
 ];
@@ -168,7 +168,7 @@ export const processSteps = [
     number: "03",
     title: "Same-Day Highlights",
     description:
-      "Before the event's even over, a same-day edit is ready to post so your chapter stays top of feed.",
+      "Before the event's even over, same-day edits are ready to post so your chapter stays top of feed.",
   },
   {
     number: "04",

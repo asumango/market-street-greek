@@ -59,11 +59,14 @@ export default function Hero() {
             variants={fadeUp}
             className="mt-8 max-w-xl text-lg sm:text-xl text-paper-dim leading-relaxed"
           >
-            Market Street is the production team behind{" "}
-            <span className="text-paper font-medium">Greek Life&rsquo;s</span>{" "}
-            biggest moments—partnering with national sororities to create
-            photo, video, and social content that strengthens brands,
-            celebrates sisterhood, and connects collegians with alumnae.
+            Struggling to properly showcase your chapter&rsquo;s next donor
+            event, pledge class, or alumnae reunion? Market Street is the
+            production team behind{" "}
+            <span className="text-paper font-medium">
+              Alpha Delta Pi&rsquo;s
+            </span>{" "}
+            biggest moments — and we&rsquo;re expanding to bring that same
+            photo, video, and social content to sororities nationwide.
           </motion.p>
 
           <motion.div
@@ -101,18 +104,18 @@ export default function Hero() {
         className="mt-16 sm:mt-20"
       >
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <div className="grid grid-cols-4 sm:grid-cols-6 gap-3 sm:gap-4 h-[240px] sm:h-[340px] lg:h-[420px]">
+          <div className="grid grid-cols-4 sm:grid-cols-6 gap-3 sm:gap-4">
             {[
-              { src: "/photos/hero-processional-1.jpg", alt: "Processional at Alpha Delta Pi National Convention", span: "col-span-2 sm:col-span-2", y: "translate-y-0" },
-              { src: "/photos/hero-welcome-party-1.jpg", alt: "Welcome party at Alpha Delta Pi convention", span: "col-span-2 sm:col-span-2", y: "-translate-y-4 sm:-translate-y-8" },
-              { src: "/photos/hero-awards-banquet-1.jpg", alt: "Awards banquet at Alpha Delta Pi convention", span: "hidden sm:block sm:col-span-2", y: "translate-y-0" },
-              { src: "/photos/hero-silent-disco-1.jpg", alt: "Silent disco at Alpha Delta Pi convention", span: "col-span-2 sm:col-span-2", y: "translate-y-4 sm:translate-y-6" },
-              { src: "/photos/hero-keynote-1.jpg", alt: "Keynote session at Alpha Delta Pi convention", span: "hidden sm:block sm:col-span-2", y: "-translate-y-2" },
-              { src: "/photos/hero-processional-2.jpg", alt: "Processional at Alpha Delta Pi National Convention", span: "col-span-2 sm:col-span-2", y: "translate-y-0" },
+              { src: "/photos/hero-processional-1.jpg", alt: "Processional at Alpha Delta Pi National Convention", span: "col-span-2 sm:col-span-2" },
+              { src: "/photos/hero-welcome-party-1.jpg", alt: "Welcome party at Alpha Delta Pi convention", span: "col-span-2 sm:col-span-2" },
+              { src: "/photos/hero-awards-banquet-1.jpg", alt: "Awards banquet at Alpha Delta Pi convention", span: "hidden sm:block sm:col-span-2" },
+              { src: "/photos/hero-silent-disco-1.jpg", alt: "Silent disco at Alpha Delta Pi convention", span: "col-span-2 sm:col-span-2" },
+              { src: "/photos/hero-keynote-1.jpg", alt: "Keynote session at Alpha Delta Pi convention", span: "hidden sm:block sm:col-span-2" },
+              { src: "/photos/hero-processional-2.jpg", alt: "Processional at Alpha Delta Pi National Convention", span: "col-span-2 sm:col-span-2" },
             ].map((img, i) => (
               <div
                 key={img.src}
-                className={`relative ${img.span} ${img.y} rounded-2xl overflow-hidden ring-1 ring-white/10 group`}
+                className={`relative ${img.span} aspect-[3/2] rounded-2xl overflow-hidden ring-1 ring-white/10 group`}
               >
                 <Image
                   src={img.src}
