@@ -82,7 +82,7 @@ export default function Hero() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full bg-gold px-7 py-4 text-sm font-semibold text-ink hover:bg-gold-light transition-colors"
             >
-              Book Your Chapter
+              Book Your Organization
               <ArrowUpRight className="size-4" />
             </a>
             <a
