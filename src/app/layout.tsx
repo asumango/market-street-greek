@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     template: "%s | Market Street Studios",
   },
   description:
-    "Market Street Studios is the production team behind Alpha Delta Pi's biggest moments — now capturing events, conferences, and recruitment for sororities nationwide. Photo, video, and social content that gets watched.",
+    "Market Street Studios is the production team behind Alpha Delta Pi's biggest moments — documenting sorority history so these memories outlive us and live on for generations. Photo, video, and social content built to be watched today and treasured for years to come.",
   keywords: [
     "sorority content agency",
     "Greek life video production",
@@ -44,6 +44,8 @@ export const metadata: Metadata = {
     "sorority social media content",
     "Panhellenic event videography",
     "sorority recruitment video",
+    "sorority archive",
+    "Greek life legacy content",
   ],
   authors: [{ name: "Market Street Studios" }],
   creator: "Market Street Studios",
@@ -54,7 +56,7 @@ export const metadata: Metadata = {
     siteName: "Market Street Studios",
     title: "Market Street Studios | Content Studio for Greek Life",
     description:
-      "Photo, video, and social content for sorority events and conferences — trusted by Alpha Delta Pi, built for organizations nationwide.",
+      "Photo, video, and social content that documents sorority history — trusted by Alpha Delta Pi, building archives that outlive us all.",
     images: [
       {
         url: "/og-image.jpg",
@@ -68,7 +70,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Market Street Studios | Content Studio for Greek Life",
     description:
-      "Photo, video, and social content for sorority events and conferences — trusted by Alpha Delta Pi, built for organizations nationwide.",
+      "Photo, video, and social content that documents sorority history — trusted by Alpha Delta Pi, building archives that outlive us all.",
     images: ["/og-image.jpg"],
   },
   robots: {
@@ -91,7 +93,7 @@ const jsonLd = {
   name: "Market Street Studios",
   url: siteUrl,
   description:
-    "Content studio capturing events, conferences, and recruitment for sororities nationwide — photo, long-form video, and social content.",
+    "Content studio documenting sorority history nationwide — photo, long-form video, and social content built to outlive us all.",
   email: "hello@marketststudios.com",
   sameAs: [],
   areaServed: "US",

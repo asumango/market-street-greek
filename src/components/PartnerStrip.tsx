@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 const items = [
   "Alpha Delta Pi — Official Content Partner",
   "National Convention Coverage",
+  "Documenting Generations of Sisterhood",
   "Organization Philanthropy Days",
   "Now Onboarding Organizations Nationwide",
   "Panhellenic Conference Coverage",

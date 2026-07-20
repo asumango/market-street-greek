@@ -53,8 +53,8 @@ export default function Services() {
             className="text-paper-dim max-w-sm text-base leading-relaxed"
           >
             From a single philanthropy event to a full national conference,
-            we build the coverage plan around what your organization actually
-            needs to post.
+            we build the coverage plan around what your organization needs
+            today — and the archive it&rsquo;ll want for generations.
           </motion.p>
         </div>
 

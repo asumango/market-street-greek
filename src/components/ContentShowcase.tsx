@@ -139,6 +139,16 @@ export default function ContentShowcase() {
           >
             From the main stage to the main feed.
           </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-paper-dim mt-4 leading-relaxed"
+          >
+            Long-form films and social cutdowns alike — all of it archived,
+            ready to be revisited for years to come.
+          </motion.p>
         </div>
 
         {/* Featured long-form video */}

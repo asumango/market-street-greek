@@ -43,7 +43,7 @@ export default function Contact() {
         >
           Grab 30 minutes on our calendar and we&rsquo;ll put together a
           coverage plan for your next event, conference, or recruitment
-          cycle.
+          cycle — the start of an archive built to last.
         </motion.p>
 
         <motion.a

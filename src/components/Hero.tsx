@@ -66,7 +66,8 @@ export default function Hero() {
               Alpha Delta Pi&rsquo;s
             </span>{" "}
             biggest moments — and we&rsquo;re expanding to bring that same
-            photo, video, and social content to sororities nationwide.
+            photo, video, and social content to sororities nationwide,
+            building archives that outlive us all.
           </motion.p>
 
           <motion.div

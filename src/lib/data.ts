@@ -10,7 +10,7 @@ export const services = [
     id: "photo",
     title: "Event Photography",
     description:
-      "Full-day coverage of recruitment, formals, philanthropy, and sisterhood events — edited and delivered fast.",
+      "Full-day coverage of recruitment, formals, philanthropy, and sisterhood events — edited, delivered fast, and archived for the long run.",
     tag: "Photo",
   },
   {
@@ -196,7 +196,7 @@ export const processSteps = [
     number: "04",
     title: "Full Gallery Delivered",
     description:
-      "Within 48 hours, your full photo gallery, recap film, and social cutdowns land in your hands — ready to share.",
+      "Within 48 hours, your full photo gallery, recap film, and social cutdowns land in your hands — ready to share today, and ready to be revisited for generations.",
   },
 ];
 

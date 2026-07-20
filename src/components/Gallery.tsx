@@ -36,7 +36,7 @@ export default function Gallery() {
               viewport={{ once: true }}
               className="font-display text-4xl sm:text-6xl uppercase tracking-tight text-balance"
             >
-              A feed worth scrolling.
+              A feed worth scrolling. A history worth keeping.
             </motion.h2>
           </div>
 
