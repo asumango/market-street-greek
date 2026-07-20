@@ -6,9 +6,8 @@ import Image from "next/image";
 import Player from "@vimeo/player";
 import {
   Play,
-  Camera,
-  Music2,
   PlaySquare,
+  Video,
   Volume2,
   VolumeX,
 } from "lucide-react";
@@ -22,7 +21,6 @@ const FEATURED_DURATION = "14:27";
 type VerticalClip = {
   src: string;
   label: string;
-  platform: "tiktok" | "instagram";
   views: string;
   vimeoUrl?: `https://vimeo.com/${string}`;
 };
@@ -31,34 +29,39 @@ const verticalClips: VerticalClip[] = [
   {
     src: "/photos/vertical-bid-day-reveal.jpg",
     label: "Photo Booth",
-    platform: "tiktok",
-    views: "1.2M",
+    views: "21k",
     vimeoUrl: "https://vimeo.com/1210210409/afc4d6528e",
   },
   {
     src: "/photos/vertical-recruitment-prep.jpg",
-    label: "1851 Shop Haul",
-    platform: "instagram",
-    views: "640K",
+    label: "Mic'd Up Sessions",
+    views: "10.7k",
     vimeoUrl: "https://vimeo.com/1210210366/470104981d",
   },
   {
     src: "/photos/vertical-chapter-retreat.jpg",
     label: "Carousel Scroll",
-    platform: "tiktok",
-    views: "980K",
+    views: "22.1k",
     vimeoUrl: "https://vimeo.com/1210210388/2ede526b0d",
   },
-  { src: "/photos/vertical-founders-day.jpg", label: "Founders' Day", platform: "instagram", views: "410K" },
-  { src: "/photos/vertical-formal-getting-ready.jpg", label: "Formal Getting Ready", platform: "tiktok", views: "2.1M" },
+  {
+    src: "/photos/vertical-founders-day.jpg",
+    label: "Creative Splits",
+    views: "20.1k",
+    vimeoUrl: "https://vimeo.com/1210210407/fc53c8766c",
+  },
+  {
+    src: "/photos/vertical-formal-getting-ready.jpg",
+    label: "Social Recaps",
+    views: "40k",
+    vimeoUrl: "https://vimeo.com/1210210383/6f81d90caa",
+  },
 ];
 
 const horizontalClips = [
   { src: "/photos/horizontal-convention-recap.jpg", label: "2025 National Convention Recap", duration: "6:42" },
   { src: "/photos/horizontal-recruitment-week.jpg", label: "A Week Inside Recruitment", duration: "4:15" },
 ];
-
-const platformIcon = { tiktok: Music2, instagram: Camera };
 
 export default function ContentShowcase() {
   const featuredContainerRef = useRef<HTMLDivElement>(null);
@@ -195,7 +198,7 @@ export default function ContentShowcase() {
             <h3 className="font-heading text-lg sm:text-xl font-semibold">
               Vertical Social Cutdowns
             </h3>
-            <span className="text-xs text-paper-dim hidden sm:inline">
+            <span className="text-xs text-paper-dim lg:hidden">
               Scroll for more →
             </span>
           </div>
@@ -271,7 +274,6 @@ function VerticalClipCard({
   onActivate: (index: number) => void;
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const Icon = platformIcon[clip.platform];
 
   useEffect(() => {
     if (!clip.vimeoUrl || !containerRef.current) return;
@@ -320,7 +322,7 @@ function VerticalClipCard({
       )}
       <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/10 to-ink/30" />
       <div className="absolute top-3 left-3 flex size-8 items-center justify-center rounded-full bg-ink/50 backdrop-blur">
-        <Icon className="size-4" />
+        <Video className="size-4" />
       </div>
 
       {clip.vimeoUrl ? (
