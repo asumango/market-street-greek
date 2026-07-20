@@ -65,7 +65,7 @@ export default function CaseStudy() {
           transition={{ delay: 0.05 }}
           className="font-display text-4xl sm:text-6xl uppercase tracking-tight max-w-3xl text-balance mb-6"
         >
-          We don&rsquo;t just capture events. We document history.
+          Every moment. Fully documented.
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 16 }}

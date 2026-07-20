@@ -45,10 +45,10 @@ export default function Hero() {
             variants={fadeUp}
             className="font-display text-[13vw] leading-[0.92] sm:text-[7.5vw] lg:text-[6vw] tracking-tight text-balance uppercase"
           >
-            Stop hosting events
+            We don&rsquo;t just capture events.
             <br />
             <span className="text-transparent [-webkit-text-stroke:1.5px_#f6f2ea]">
-              no one sees.
+              We document history.
             </span>
           </motion.h1>
 
