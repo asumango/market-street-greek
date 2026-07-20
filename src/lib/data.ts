@@ -1,7 +1,7 @@
 export const navLinks = [
   { label: "Work", href: "#gallery" },
   { label: "Services", href: "#services" },
-  { label: "Impact", href: "#metrics" },
+  { label: "Case Study", href: "#case-study" },
   { label: "Process", href: "#process" },
 ];
 
@@ -136,19 +136,41 @@ export const galleryItems = [
 
 export const galleryFilters = ["All", "Photo", "Video", "Social"] as const;
 
-export const metrics = [
-  { id: "views", label: "Video Views Generated", value: 42, suffix: "M+" },
-  { id: "engagement", label: "Avg. Engagement Rate", value: 8.4, suffix: "%" },
-  { id: "events", label: "Organization Events Covered", value: 260, suffix: "+" },
-  { id: "delivery", label: "Avg. Turnaround", value: 48, suffix: "hrs" },
+export const caseStudyStats = [
+  { id: "days", label: "Days On-Site", value: 4, suffix: "" },
+  { id: "photographers", label: "Photographers", value: 2, suffix: "" },
+  { id: "videographers", label: "Videographers", value: 2, suffix: "" },
+  { id: "editors", label: "Lead Editor", value: 1, suffix: "" },
+  { id: "videos", label: "Video Deliverables", value: 27, suffix: "" },
+  { id: "photos", label: "Photos Delivered", value: 5671, suffix: "" },
 ];
 
-export const engagementBars = [
-  { label: "Reels", value: 92 },
-  { label: "Recap Films", value: 78 },
-  { label: "Stories", value: 64 },
-  { label: "Photo Sets", value: 71 },
-  { label: "Live Cuts", value: 85 },
+export const deliveryDays = [
+  {
+    day: "Wednesday",
+    count: 10,
+    sample: [
+      "Registration",
+      "Welcome Reception",
+      "Grand Council",
+      "Sisterhood Experience",
+    ],
+  },
+  {
+    day: "Thursday",
+    count: 16,
+    sample: ["Opening Session", "Processional", "Foundation Reception", "Dinner"],
+  },
+  {
+    day: "Friday",
+    count: 10,
+    sample: ["Memorial Service", "Western District", "Council Headshots", "Candids"],
+  },
+  {
+    day: "Saturday",
+    count: 34,
+    sample: ["Awards Banquet", "Keynote", "Alumnae Associations", "Social Hour"],
+  },
 ];
 
 export const processSteps = [

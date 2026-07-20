@@ -5,7 +5,7 @@ import Services from "@/components/Services";
 import Gallery from "@/components/Gallery";
 import ContentShowcase from "@/components/ContentShowcase";
 import PhoneReveal from "@/components/PhoneReveal";
-import Metrics from "@/components/Metrics";
+import CaseStudy from "@/components/CaseStudy";
 import Process from "@/components/Process";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -21,7 +21,7 @@ export default function Home() {
         <Gallery />
         <ContentShowcase />
         <PhoneReveal />
-        <Metrics />
+        <CaseStudy />
         <Process />
         <Contact />
       </main>
